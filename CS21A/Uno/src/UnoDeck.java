@@ -45,7 +45,7 @@ public class UnoDeck {
 	}
 	
 	public UnoCard getLastDiscarded() {
-		discard.removeIndex(discard.size()-1);
+	//	discard.removeIndex(discard.size()-1);
 		return lastDiscarded;
 	}
 	
@@ -56,7 +56,7 @@ public class UnoDeck {
 	
 	public void discardCard(UnoCard c) {
 		discard.regularInsert(c);
-		
+		lastDiscarded = c;
 	}
 	
 	public String toString() {
