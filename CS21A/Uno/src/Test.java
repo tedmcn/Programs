@@ -2,19 +2,21 @@
 public class Test {
 
 	public static <T> void main(String[] args) {
-		SinglyLinkedList<T> l = new SinglyLinkedList<T>();
-		UnoCard x = new UnoCard("Blue", 3);
-		UnoCard y = new UnoCard("Red", 3);
-		UnoCard z = new UnoCard("Yellow", 3);
-		UnoCard a = new UnoCard("Blue", 7);
-		UnoCard q = new UnoCard("Green", 8);
-		l.regularInsert((T)x);
-		l.regularInsert((T)y);
-		l.regularInsert((T)z);
-		l.regularInsert((T)a);
-		l.regularInsert((T)q);
-		System.out.println(l.toString());
-		testQueue();
+		// SinglyLinkedList<T> l = new SinglyLinkedList<T>();
+		
+		// //Test single link list
+		// UnoCard x = new UnoCard("Blue", 3);
+		// UnoCard y = new UnoCard("Red", 3);
+		// UnoCard z = new UnoCard("Yellow", 3);
+		// UnoCard a = new UnoCard("Blue", 7);
+		// UnoCard q = new UnoCard("Green", 8);
+		// l.regularInsert((T)x);
+		// l.regularInsert((T)y);
+		// l.regularInsert((T)z);
+		// l.regularInsert((T)a);
+		// l.regularInsert((T)q);
+		// System.out.println(l.toString());
+		// testQueue();
 		testCDLL();
 	}
 
@@ -49,6 +51,5 @@ public class Test {
 		P.addToCircle(p3);
 		P.addToCircle(p4); 
 		P.addToCircle(p5);
-		System.out.println(P.toString());
 	}
 }
