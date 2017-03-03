@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class UnoGame {
+
+	private static Scanner console = new Scanner(System.in);
+	private static UnoDeck deck = new UnoDeck();
+	private static PlayerCircle C;
+	private static Queue<Player> Q;
+
+	public static void main(String[] args) {
+		askPlayers();
+		drawHand();
+	}
+	
+	public static void askPlayers() {
+		System.out.print("How many people will be playing Uno? ");
+		int numPlayers = console.nextInt();
+		C = new PlayerCircle();
+		if (numPlayers <= 5) {
+			for(int i = 0; i < numPlayers; i++) {
+				System.out.print("Please enter a players name: ");
+				String s = console.next();
+				Player player = new Player(s);
+				C.addToCircle(player);
+			}
+		} else {
+			int temp = numPlayers-5;
+			Q = new Queue<Player>(temp);
+			for(int i = 0; i < 5; i++) {
+				System.out.print("Please enter a players name: ");
+				String s = console.next();
+				Player player = new Player(s);
+				C.addToCircle(player);
+			}
+			for(int i = 0; i < temp; i++) {
+				System.out.print("Please enter a players name: ");
+				String s = console.next();
+				Player player = new Player(s);
+				Q.enqueue(player);
+			}
+		}
+	}
+	
+	public static void drawHand() {
+		Player temp = C.getFirstPlayer();
+		for(int i = 0; i < C.getSize(); i++) {
+			for(int j = 0; j < 7; j++) {
+				temp.addToHand(deck.drawCard());
+			}
+			temp = temp.getNextPlayer();
+		}
+	}
+}

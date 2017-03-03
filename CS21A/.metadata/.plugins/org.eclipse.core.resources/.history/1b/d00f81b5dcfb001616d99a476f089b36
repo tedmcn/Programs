@@ -1,0 +1,33 @@
+
+public class Queue<T> {
+	private int front;
+	private int rear;
+	private int size;
+	private T[] Q;
+
+	public Queue(int size) {
+		Q = new T[size];
+		this.size = size;
+		front = -1;
+		rear = -1;
+	}
+
+	public void enqueue(T data) {
+		Q[rear] = data;
+		if (rear == size) {
+			rear = 0;
+		} else {
+			rear++;
+		}
+	}
+	
+	public T dequeue() {
+		T x = Q[front];
+		if (front == size) {
+			front = 1;
+		} else {
+			front++;
+		}
+		return x;
+	}
+}

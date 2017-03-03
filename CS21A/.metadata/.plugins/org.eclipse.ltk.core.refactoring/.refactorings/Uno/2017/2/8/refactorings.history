@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring clone="false" comment="Infer generic type arguments on &apos;Uno&apos;&#x0A;- Original project: &apos;Uno&apos;&#x0A;- Original elements:&#x0A;     SinglyLinkedList.java" description="Infer generic type arguments" element1="/src&lt;{SinglyLinkedList.java" flags="6" id="org.eclipse.jdt.ui.infer.typearguments" leave="false" stamp="1487803150511" version="1.0"/>
+</session>

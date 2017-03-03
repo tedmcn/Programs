@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class UnoGame {
+
+	private static Scanner console = new Scanner(System.in);
+	private PlayerCircle playerCircle = new PlayerCircle();
+
+	public static void main(String[] args) {
+		askPlayers();
+	}
+	
+	public static void askPlayers() {
+		System.out.print("How many people will be playing Uno? ");
+		int numPlayers = console.nextInt();
+		if (numPlayers <= 5) {
+			for(int i = 0; i < numPlayers; i++) {
+				
+				System.out.print("Please enter a players name: ");
+				String s = console.next();
+				Player player = new Player(s);
+				
+			}
+		} else {
+			
+		}
+	}
+}

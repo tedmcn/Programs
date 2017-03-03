@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class UnoGame {
+
+	private static Scanner console = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		askPlayers();
+	}
+	
+	public static void 
+		System.out.print("How many people will be playing Uno? ");
+		int numPlayers = console.nextInt();
+}

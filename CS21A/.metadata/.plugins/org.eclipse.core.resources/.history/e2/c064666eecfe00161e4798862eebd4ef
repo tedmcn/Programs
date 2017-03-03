@@ -1,0 +1,17 @@
+
+public class Test {
+
+	public static <T> void main(String[] args) {
+		SinglyLinkedList<T> l = new SinglyLinkedList<T>();
+		UnoCard x = new UnoCard("Blue", 3);
+		UnoCard y = new UnoCard("Blue", 3);
+		UnoCard z = new UnoCard("Blue", 3);
+		UnoCard a = new UnoCard("Blue", 3);
+		l.regularInsert((T)x);
+		l.regularInsert((T)y);
+		l.regularInsert((T)z);
+		l.regularInsert((T)a);
+		System.out.print(l.toSting());
+	}
+
+}

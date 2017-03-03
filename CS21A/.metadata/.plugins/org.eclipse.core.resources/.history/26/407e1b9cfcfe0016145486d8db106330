@@ -1,0 +1,54 @@
+
+public class Queue<T> {
+	private int front;
+	private int rear;
+	private int size;
+	private int currSize = 0;
+	private Object[] Q;
+
+	public Queue(int size) {
+		Q = new Object[size];
+		this.size = size;
+		front = -1;
+		rear = -1;
+	}
+
+	public void enqueue(T data) {
+		Q[rear] = data;
+		if (this.isFull()) {
+			rear = (rear+1)%size;
+			Q[rear] = data;
+			currSize++;
+		} else {
+			rear++;
+		}
+	}
+	
+	public T dequeue() {
+		T x = null;
+		if (!this.isEmpty()) {
+			x = (T)Q[front];
+			front = (front+1)%size;
+			currSize--;
+		}
+		return x;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public boolean isEmpty() {
+		if (currSize == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isFull() {
+		if (size == currSize) {
+			return true;
+		}
+		return false;
+	}
+}

@@ -1,0 +1,12 @@
+
+public class Queue<T> {
+	private int size;
+	private int[] arr;
+
+	public Queue(int size) {
+		arr = new int[size];
+		this.size = size;
+	}
+
+	
+}

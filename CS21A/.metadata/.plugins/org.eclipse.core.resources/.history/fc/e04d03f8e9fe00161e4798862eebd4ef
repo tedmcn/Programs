@@ -1,0 +1,12 @@
+
+public class Test {
+
+	public static <T> void main(String[] args) {
+		SinglyLinkedList<T> L = new SinglyLinkedList<T>();
+		L.regularInsert(2);
+		L.regularInsert(3);
+		L.regularInsert(90);
+		L.toSting();
+	}
+
+}

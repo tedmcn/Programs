@@ -1,0 +1,8 @@
+
+public class PlayerCircle {
+
+	public PlayerCircle() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

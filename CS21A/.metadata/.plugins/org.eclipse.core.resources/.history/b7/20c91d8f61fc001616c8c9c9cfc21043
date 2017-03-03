@@ -1,0 +1,105 @@
+import java.util.*;
+
+public class SinglyLinkedList<T> {
+	private SinglyLinkedNode<T> head;
+	private SinglyLinkedNode<T> tail;
+	private int size = 0;
+	
+	public SinglyLinkedNode<T> getHead() {
+		return head;
+	}
+	
+	public void regularInsert(T data) {
+		// Insert at end.
+		size++;
+        if (head == null) {
+            head = new SinglyLinkedNode<T>(data);
+            tail = head;
+        } else {
+            SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(data);
+            tail.setNext(newNode);
+            this.tail = newNode;
+        }
+	}
+	
+	public void randomInsert(T data) {
+		SinglyLinkedNode<T> temp;
+		SinglyLinkedNode<T> curr = head;
+		SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(data);
+		Random rand = new Random();
+		int index = rand.nextInt(this.size());
+		if (index == 0) {
+			curr = newNode.getNext();
+			curr = head;
+			head = newNode;
+			size++;
+		} else if (index > size-1 || index < 0) {
+			System.out.println("Index out of bounds.");
+		} else {
+			for(int i = 0; i < index; i++) {
+				curr = curr.getNext();
+			}
+			temp = newNode.getNext();
+			temp = curr.getNext();
+			temp = newNode;
+			size++;
+		}
+	}
+	
+	public T remove(T data) {
+		SinglyLinkedNode<T> curr = head;
+		SinglyLinkedNode<T> p1 = null;
+		SinglyLinkedNode<T> p2;
+		while (curr.getNext() != null) {
+			if(curr.getNext().getData().equals(data)) {
+				p1 = curr.getNext();
+				p2 = p1.getNext();
+				curr.setNext(p2);
+			} else {
+				curr = curr.getNext();
+			}
+		}
+		return p1.getData();
+	}
+	
+	public T removeIndex(int index) {
+		SinglyLinkedNode<T> curr;
+		SinglyLinkedNode<T> temp;
+		if (index == 0) {
+			curr = head;
+			head = curr.getNext();
+			size--;
+			return curr.getData();
+		} else if (index > size-1 || index < 0) {
+			System.out.println("Index out of bounds.");
+			return null;
+		} else {
+			curr = head;
+			for(int i = 0; i < index; i++) {
+				curr = curr.getNext();
+			}
+		temp = curr;
+		}
+	}
+ 
+	public int size() {
+	    size = 0;
+		SinglyLinkedNode<T> curr = head;
+	    while(curr.getNext() != null) {
+	        curr = curr.getNext();
+	        size++;     
+	    }
+	    return size;
+	}
+	
+	public String toSting() {
+		String s = "";
+        SinglyLinkedNode<T> curr = head;
+        while(curr != null) {
+            s += curr.getNext()+" ";
+            curr = curr.getNext();
+
+        }
+        return s;
+    }
+}

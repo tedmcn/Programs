@@ -1,0 +1,59 @@
+
+public class PlayerCircle {
+	private Player head = null;
+	private Player tail = null;
+	private int size = 0;
+	 
+	public void addToCircle(Player p) {
+		Player curr = head;
+		if (size == 0) {
+			head = p;
+			tail = head;
+		// Checks if name is first than current head, then changes last name in circle next pointer.
+		} else {
+			String s1 = p.getName();
+			String s2 = curr.getName();
+			while (curr != null && s1.compareTo(s2) <= 0) {
+				curr = curr.getNextPlayer();
+				s2 = curr.getName();
+			}
+			if (curr == head) {
+				p.setNextPlayer(head);
+				if (head != null) {
+					head.setPrevPlayer(p);
+				}
+				head = p;
+				p.setPrevPlayer(null);
+			} else if (curr == tail) {
+				p.setNextPlayer(curr.getNextPlayer());
+				if (p.getNextPlayer() != null) {
+					curr.getNextPlayer().setPrevPlayer(p);
+				}
+				curr.setNextPlayer(p);
+				p.setPrevPlayer(curr);
+			} else {
+				
+			}
+		}
+		size++;
+	}
+	
+	public Player getFirstPlayer() {
+		return head;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public String toString() { 
+		String s = "";
+		Player temp = head;
+		for(int i = 0; i < size; i++) {
+			s = temp+"";
+			temp = temp.getNextPlayer();
+		}
+		return s;
+	}
+
+}

@@ -1,0 +1,23 @@
+
+public class PlayerCircle {
+	private Player head = null;
+	private Player tail = null;
+	private int size = 0;
+	
+	public void addToCircle(Player p) {
+		head.setNextPlayer(p);
+	}
+	
+	public Player getFirstPlayer() {
+		return;
+	}
+	
+	public int getSize() {
+		return;
+	}
+	
+	public String toString() {
+		
+	}
+
+}

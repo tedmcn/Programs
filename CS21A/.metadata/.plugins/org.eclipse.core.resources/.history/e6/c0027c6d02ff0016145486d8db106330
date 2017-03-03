@@ -1,0 +1,18 @@
+
+public class PlayerCircle {
+	private Player head = null;
+	private int size = 0;
+	
+	public void addToCircle(Player p) {
+		head.setNextPlayer(p);
+	}
+	
+	public getFirstPlayer() {
+		return head;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+
+}

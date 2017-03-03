@@ -1,0 +1,111 @@
+import java.util.*;
+
+public class SinglyLinkedList<T> {
+	private SinglyLinkedNode<T> head;
+	private SinglyLinkedNode<T> tail;
+	private int size = 0;
+	
+	public SinglyLinkedNode<T> getHead() {
+		return head;
+	}
+	
+	public void regularInsert(T data) {
+		// Insert at end.
+        if (head == null) {
+            head = new SinglyLinkedNode<T>(data);
+            tail = head;
+        } else {
+            SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(data);
+            tail.setNext(newNode);
+            tail = newNode;
+        }
+        size++;
+	}
+	
+	// Good
+	public void randomInsert(T data) {
+		SinglyLinkedNode<T> curr = head;
+		SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(data);
+		Random rand = new Random();
+		int index = rand.nextInt(this.size());
+		if (index == 0) {
+			newNode.setNext(head);;
+			head = newNode;
+			size++;
+		} else if (index > size-1 || index < 0) {
+			System.out.println("Index out of bounds.");
+		} else {
+			for(int i = 0; i < index; i++) {
+				curr = curr.getNext();
+			}
+			newNode.setNext(curr.getNext());
+			curr.setNext(newNode);
+			size++;
+		}
+	}
+	
+	// Good
+	public T remove(T data) {
+		SinglyLinkedNode<T> curr = head;
+		SinglyLinkedNode<T> p1 = null;
+		SinglyLinkedNode<T> p2;
+		while (curr.getNext() != null) {
+			if(curr.getNext().getData().equals(data)) {
+				p1 = curr.getNext();
+				p2 = p1.getNext();
+				curr.setNext(p2);
+			} else {
+				curr = curr.getNext();
+			}
+		}
+		return p1.getData();
+	}
+	
+	// Good
+	public T removeIndex(int index) {
+		SinglyLinkedNode<T> curr;
+		SinglyLinkedNode<T> prev;
+		SinglyLinkedNode<T> temp;
+		if (index == 0) {
+			temp = head;
+			head = head.getNext();
+			temp.setNext(null);
+			size--;
+			return temp.getData();
+		} else if (index > size-1 || index < 0) {
+			System.out.println("Index out of bounds.");
+			return null;
+		} else {
+			prev = head;
+			for(int i = 0; i < index; i++) {
+				prev = prev.getNext();
+			}
+			curr = prev.getNext();
+			prev.setNext(curr.getNext());
+			this.remove(curr.getData());
+			size--;
+			return curr.getData();
+		}
+	}
+ 
+	public int size() {
+	    size = 0;
+		SinglyLinkedNode<T> curr = head;
+	    while(curr != null) {
+	        curr = curr.getNext();
+	        size++;     
+	    }
+	    return size;
+	}
+	
+	public String toSting() {
+		String s = "";
+        SinglyLinkedNode<T> curr = head;
+        while(curr != null) {
+            s += curr+" ";
+            curr = curr.getNext();
+
+        }
+        return s;
+    }
+}

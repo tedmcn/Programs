@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class UnoGame {
+
+	private static Scanner console;
+
+	public static void main(String[] args) {
+		console = new Scanner(System.in);
+	}
+
+}
